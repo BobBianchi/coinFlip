@@ -1,6 +1,6 @@
 //declarations
 let heads;
-let userWin;
+let msg;
 
 //Heads and Tails buttons will trigger gameStart and pass its name as an argument
 function gameStart(guess) {
@@ -15,19 +15,29 @@ function gameStart(guess) {
     console.log(`guess = ${guess}`);
     if (guess === heads) {
         if (guess === true) {
-            alert("The coin came up Heads. you win!");
-            // console.log("The coin came up Heads. you win!");
+            msg = "The coin came up Heads. you win!";
         } else {
-            alert("The coin came up Tails. you win!");
-            // console.log("The coin came up Tails. you win!");
+            msg = "The coin came up Tails. you win!";
         }
     } else {
         if (guess === true) {
-            alert("The coin came up Tails. you lose.");
-            // console.log("The coin came up Tails. you lose.");
+            msg = "The coin came up Tails. you lose.";
         } else {
-            alert("The coin came up Heads. you lose.");
-            // console.log("The coin came up Heads. you lose.");
+            msg = "The coin came up Heads. you lose.";
         }
     }
+    console.log(msg);
+    results(msg);
+}
+
+//build feedback section
+function results(msg) {
+    let targetNode = document.getElementById("results");
+
+    let feedback = document.createElement("feedback");
+    feedback.innerText = `${msg}`;
+    if (targetNode.hasChildNodes()) {
+        targetNode.removeChild(targetNode.firstElementChild);
+    }
+    targetNode.appendChild(feedback);
 }
