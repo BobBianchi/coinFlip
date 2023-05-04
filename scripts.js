@@ -2,7 +2,7 @@
 let heads;
 let msg;
 
-//Heads and Tails buttons will trigger gameStart and pass its name as an argument
+//Heads and Tails buttons will trigger gameStart Heads = true. a la a tails gues would pass "guess = false"
 function gameStart(guess) {
     let randomNum = Math.random();
     console.log(randomNum);
