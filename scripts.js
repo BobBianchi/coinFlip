@@ -33,11 +33,18 @@ function gameStart(guess) {
 //build feedback section
 function results(msg) {
     let targetNode = document.getElementById("results");
-
     let feedback = document.createElement("feedback");
     feedback.innerText = `${msg}`;
-    if (targetNode.hasChildNodes()) {
+    while (targetNode.hasChildNodes()) {
         targetNode.removeChild(targetNode.firstElementChild);
     }
     targetNode.appendChild(feedback);
+
+    let targetForPlayAgain = document.getElementById("playAgain");
+    let playAgain = document.createElement("playAgain");
+    playAgain.innerText = "Choose again to play again.";
+    while (targetForPlayAgain.hasChildNodes()) {
+        targetForPlayAgain.removeChild(targetForPlayAgain.firstElementChild);
+    }
+    targetForPlayAgain.appendChild(playAgain);
 }
